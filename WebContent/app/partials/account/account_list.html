@@ -1,0 +1,41 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Account' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'account.id' | translate }}</th>
+						<th>{{ 'account.accountName' | translate }}</th>
+						<th>{{ 'account.originalBalance' | translate }}</th>
+						<th>{{ 'account.currentBalance' | translate }}</th>
+						<th>{{ 'account.minPaymentDue' | translate }}</th>
+						<th>{{ 'account.dateLastPayment' | translate }}</th>
+						<th>{{ 'account.dateNextPaymentDue' | translate }}</th>
+						<th>{{ 'account.dateOpened' | translate }}</th>
+						 
+						<th>{{ 'account.autoPayment' | translate }}</th>
+						<th>{{ 'account.webSite' | translate }}</th>
+						<th><a class="btn btn-info" href='#/account/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="account in accounts">
+						<td>{{account.id}}</td>
+						<td>{{account.accountName}}</td>
+						<td>{{account.originalBalance | number }}</td>
+						<td>{{account.currentBalance | number }}</td>
+						<td>{{account.minPaymentDue | number }}</td>
+						<td>{{account.dateLastPayment | date:'shortDate'}}</td>
+						<td>{{account.dateNextPaymentDue | date:'shortDate'}}</td>
+						<td>{{account.dateOpened | date:'shortDate'}}</td>
+						 
+						 
+						<td>{{account.autoPayment}}</td>
+						<td>{{account.webSite}}</td>
+						<td><a class="btn btn-info" href="#/account/{{account.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

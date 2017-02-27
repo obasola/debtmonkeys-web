@@ -1,0 +1,32 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'PaymentHistory' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'paymentHistory.idpaymentHistory' | translate }}</th>
+						<th>{{ 'paymentHistory.balanceRemaining' | translate }}</th>
+						<th>{{ 'paymentHistory.amountPaid' | translate }}</th>
+						<th>{{ 'paymentHistory.paymentDate' | translate }}</th>
+						<th>{{ 'paymentHistory.nextPaymentDate' | translate }}</th>
+						<th>{{ 'paymentHistory.dateModified' | translate }}</th>
+						<th>{{ 'paymentHistory.dateCreated' | translate }}</th>
+						<th><a class="btn btn-info" href='#/paymentHistory/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="paymentHistory in paymentHistorys">
+						<td>{{paymentHistory.idpaymentHistory}}</td>
+						<td>{{paymentHistory.balanceRemaining | number }}</td>
+						<td>{{paymentHistory.amountPaid | number }}</td>
+						<td>{{paymentHistory.paymentDate | date:'shortDate'}}</td>
+						<td>{{paymentHistory.nextPaymentDate | date:'shortDate'}}</td>
+						<td>{{paymentHistory.dateModified | date:'shortDate'}}</td>
+						<td>{{paymentHistory.dateCreated | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/paymentHistory/{{paymentHistory.idpaymentHistory}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

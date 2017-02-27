@@ -1,0 +1,70 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'AccountOwner' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="accountOwner_id" class="col-sm-2 control-label">{{ 'accountOwner.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_id" name="id" ng-model="accountOwner.id" class="form-control" maxLength="11"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_userName" class="col-sm-2 control-label">{{ 'accountOwner.userName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_userName" name="userName" ng-model="accountOwner.userName" class="form-control" maxLength="15" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_password" class="col-sm-2 control-label">{{ 'accountOwner.password' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_password" name="password" ng-model="accountOwner.password" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_emailAddress" class="col-sm-2 control-label">{{ 'accountOwner.emailAddress' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_emailAddress" name="emailAddress" ng-model="accountOwner.emailAddress" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_firstName" class="col-sm-2 control-label">{{ 'accountOwner.firstName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_firstName" name="firstName" ng-model="accountOwner.firstName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_lastName" class="col-sm-2 control-label">{{ 'accountOwner.lastName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_lastName" name="lastName" ng-model="accountOwner.lastName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_netMonthlyIncome" class="col-sm-2 control-label">{{ 'accountOwner.netMonthlyIncome' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_netMonthlyIncome" name="netMonthlyIncome" ng-model="accountOwner.netMonthlyIncome" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountOwner_isadmin" class="col-sm-2 control-label">{{ 'accountOwner.isadmin' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountOwner_isadmin" name="isadmin" ng-model="accountOwner.isadmin" class="form-control" maxLength="1" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(accountOwner.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/accountOwner">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

@@ -1,0 +1,40 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'AccountType' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="accountType_id" class="col-sm-2 control-label">{{ 'accountType.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountType_id" name="id" ng-model="accountType.id" class="form-control" maxLength="11"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountType_accountCode" class="col-sm-2 control-label">{{ 'accountType.accountCode' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountType_accountCode" name="accountCode" ng-model="accountType.accountCode" class="form-control" maxLength="6" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountType_accountName" class="col-sm-2 control-label">{{ 'accountType.accountName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountType_accountName" name="accountName" ng-model="accountType.accountName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(accountType.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/accountType">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

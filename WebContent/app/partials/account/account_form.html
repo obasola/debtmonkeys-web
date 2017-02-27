@@ -1,0 +1,118 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Account' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="account_id" class="col-sm-2 control-label">{{ 'account.id' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_id" name="id" ng-model="account.id" class="form-control" maxLength="11"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_accountName" class="col-sm-2 control-label">{{ 'account.accountName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_accountName" name="accountName" ng-model="account.accountName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_accountTypeId" class="col-sm-2 control-label">{{ 'account.accountTypeId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="account_accountTypeId" ng-model="account.accountTypeId" name="accountTypeId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="accountType in items.accountTypes" title="{{accountType.label}}" ng-selected="{{accountType.value == account.accountTypeId}}" value="{{accountType.value}}">{{accountType.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_originalBalance" class="col-sm-2 control-label">{{ 'account.originalBalance' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_originalBalance" name="originalBalance" ng-model="account.originalBalance" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_currentBalance" class="col-sm-2 control-label">{{ 'account.currentBalance' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_currentBalance" name="currentBalance" ng-model="account.currentBalance" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_minPaymentDue" class="col-sm-2 control-label">{{ 'account.minPaymentDue' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_minPaymentDue" name="minPaymentDue" ng-model="account.minPaymentDue" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_dateLastPayment" class="col-sm-2 control-label">{{ 'account.dateLastPayment' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="account_dateLastPayment" bs-datepicker data-autoclose="1" ng-model="account.dateLastPayment" name="dateLastPayment" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_dateNextPaymentDue" class="col-sm-2 control-label">{{ 'account.dateNextPaymentDue' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="account_dateNextPaymentDue" bs-datepicker data-autoclose="1" ng-model="account.dateNextPaymentDue" name="dateNextPaymentDue" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_dateOpened" class="col-sm-2 control-label">{{ 'account.dateOpened' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="account_dateOpened" bs-datepicker data-autoclose="1" ng-model="account.dateOpened" name="dateOpened" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_dateClosed" class="col-sm-2 control-label">{{ 'account.dateClosed' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="account_dateClosed" bs-datepicker data-autoclose="1" ng-model="account.dateClosed" name="dateClosed" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_dateCreated" class="col-sm-2 control-label">{{ 'account.dateCreated' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="account_dateCreated" bs-datepicker data-autoclose="1" ng-model="account.dateCreated" name="dateCreated" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_dateModified" class="col-sm-2 control-label">{{ 'account.dateModified' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="account_dateModified" bs-datepicker data-autoclose="1" ng-model="account.dateModified" name="dateModified" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_autoPayment" class="col-sm-2 control-label">{{ 'account.autoPayment' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_autoPayment" name="autoPayment" ng-model="account.autoPayment" class="form-control" maxLength="4" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_webSite" class="col-sm-2 control-label">{{ 'account.webSite' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_webSite" name="webSite" ng-model="account.webSite" class="form-control" maxLength="65" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_accountOwnerId" class="col-sm-2 control-label">{{ 'account.accountOwnerId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="account_accountOwnerId" ng-model="account.accountOwnerId" name="accountOwnerId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="accountOwner in items.accountOwners" title="{{accountOwner.label}}" ng-selected="{{accountOwner.value == account.accountOwnerId}}" value="{{accountOwner.value}}">{{accountOwner.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(account.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/account">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

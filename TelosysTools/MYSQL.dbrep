@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="5" databaseName="MYSQL" databaseProductName="MySQL" generation="2017-02-26 16:29:27">
+<table catalog="debtmonkey" databaseType="TABLE" javaBean="Account" name="Account" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="account_name" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="accountName" javaType="java.lang.String" jdbcTypeCode="12" label="Account name" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_Type_Id" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountTypeId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account type id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="original_balance" dbNotNull="false" dbPosition="4" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="originalBalance" javaType="java.lang.Double" jdbcTypeCode="8" label="Original balance" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="current_balance" dbNotNull="false" dbPosition="5" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="currentBalance" javaType="java.lang.Double" jdbcTypeCode="8" label="Current balance" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="min_payment_due" dbNotNull="false" dbPosition="6" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="minPaymentDue" javaType="java.lang.Double" jdbcTypeCode="8" label="Min payment due" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_last_payment" dbNotNull="false" dbPosition="7" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateLastPayment" javaType="java.util.Date" jdbcTypeCode="91" label="Date last payment" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_next_payment_due" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateNextPaymentDue" javaType="java.util.Date" jdbcTypeCode="91" label="Date next payment due" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_opened" dbNotNull="false" dbPosition="9" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateOpened" javaType="java.util.Date" jdbcTypeCode="91" label="Date opened" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_closed" dbNotNull="false" dbPosition="10" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateClosed" javaType="java.util.Date" jdbcTypeCode="91" label="Date closed" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="date_created" dbNotNull="false" dbPosition="11" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="dateCreated" javaType="java.util.Date" jdbcTypeCode="93" label="Date created" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="date_modified" dbNotNull="false" dbPosition="12" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="dateModified" javaType="java.util.Date" jdbcTypeCode="93" label="Date modified" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="auto_payment" dbNotNull="false" dbPosition="13" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="autoPayment" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Auto payment" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="web_site" dbNotNull="false" dbPosition="14" dbSize="65" dbTypeName="VARCHAR" inputType="text" javaName="webSite" javaType="java.lang.String" jdbcTypeCode="12" label="Web site" maxLength="65" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_Owner_id" dbNotNull="true" dbPosition="15" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountOwnerId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account owner id" notNull="true" selected="true"/>
+<fk name="FK_Acct_Type">
+<fkcol colname="Account_Type_Id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account" tableref="Account_Type" updaterule="3"/>
+</fk>
+<fk name="fk_Account_Account_Owner1">
+<fkcol colname="Account_Owner_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account" tableref="Account_Owner" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Payment_History_Account1" id="LINK_FK_fk_Payment_History_Account1_I" inverseSideOf="LINK_FK_fk_Payment_History_Account1_O" javaName="listOfPaymentHistory" javaType="java.util.List" joinTableName="" mappedBy="account" optional="UNDEFINED" owningSide="false" sourceTableName="Account" targetEntity="PaymentHistory" targetTableName="Payment_History" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Account_Owner1" id="LINK_FK_fk_Account_Account_Owner1_O" inverseSideOf="" javaName="accountOwner" javaType="AccountOwner" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account" targetEntity="AccountOwner" targetTableName="Account_Owner" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Account_Owner_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Acct_Type" id="LINK_FK_FK_Acct_Type_O" inverseSideOf="" javaName="accountType" javaType="AccountType" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account" targetEntity="AccountType" targetTableName="Account_Type" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Account_Type_Id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="debtmonkey" databaseType="TABLE" javaBean="AccountOwner" name="Account_Owner" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="user_name" dbNotNull="true" dbPosition="2" dbSize="15" dbTypeName="VARCHAR" inputType="text" javaName="userName" javaType="java.lang.String" jdbcTypeCode="12" label="User name" maxLength="15" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="password" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="password" javaType="java.lang.String" jdbcTypeCode="12" label="Password" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="email_address" dbNotNull="false" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="emailAddress" javaType="java.lang.String" jdbcTypeCode="12" label="Email address" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="first_name" dbNotNull="false" dbPosition="5" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="firstName" javaType="java.lang.String" jdbcTypeCode="12" label="First name" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="last_name" dbNotNull="false" dbPosition="6" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="lastName" javaType="java.lang.String" jdbcTypeCode="12" label="Last name" maxLength="45" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="net_monthly_income" dbNotNull="false" dbPosition="7" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="netMonthlyIncome" javaType="java.lang.Double" jdbcTypeCode="8" label="Net monthly income" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="isAdmin" dbNotNull="false" dbPosition="8" dbSize="1" dbTypeName="VARCHAR" inputType="text" javaName="isadmin" javaType="java.lang.String" jdbcTypeCode="12" label="Isadmin" maxLength="1" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Account_Owner1" id="LINK_FK_fk_Account_Account_Owner1_I" inverseSideOf="LINK_FK_fk_Account_Account_Owner1_O" javaName="listOfAccount" javaType="java.util.List" joinTableName="" mappedBy="accountOwner" optional="UNDEFINED" owningSide="false" sourceTableName="Account_Owner" targetEntity="Account" targetTableName="Account" used="true"/>
+</table>
+<table catalog="debtmonkey" databaseType="TABLE" javaBean="AccountType" name="Account_Type" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="account_code" dbNotNull="false" dbPosition="2" dbSize="6" dbTypeName="VARCHAR" inputType="text" javaName="accountCode" javaType="java.lang.String" jdbcTypeCode="12" label="Account code" maxLength="6" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="account_name" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="accountName" javaType="java.lang.String" jdbcTypeCode="12" label="Account name" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Acct_Type" id="LINK_FK_FK_Acct_Type_I" inverseSideOf="LINK_FK_FK_Acct_Type_O" javaName="listOfAccount" javaType="java.util.List" joinTableName="" mappedBy="accountType" optional="UNDEFINED" owningSide="false" sourceTableName="Account_Type" targetEntity="Account" targetTableName="Account" used="true"/>
+</table>
+<table catalog="debtmonkey" databaseType="TABLE" javaBean="PaymentHistory" name="Payment_History" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="idPayment_History" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="idpaymentHistory" javaType="java.lang.Integer" jdbcTypeCode="4" label="Idpayment history" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="balance_remaining" dbNotNull="false" dbPosition="2" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="balanceRemaining" javaType="java.lang.Double" jdbcTypeCode="8" label="Balance remaining" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="amount_paid" dbNotNull="true" dbPosition="3" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="amountPaid" javaType="java.lang.Double" jdbcTypeCode="8" label="Amount paid" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="payment_date" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="DATE" inputType="date" javaName="paymentDate" javaType="java.util.Date" jdbcTypeCode="91" label="Payment date" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="next_payment_date" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="DATE" inputType="date" javaName="nextPaymentDate" javaType="java.util.Date" jdbcTypeCode="91" label="Next payment date" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="date_modified" dbNotNull="false" dbPosition="6" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="dateModified" javaType="java.util.Date" jdbcTypeCode="93" label="Date modified" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="date_created" dbNotNull="false" dbPosition="7" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="dateCreated" javaType="java.util.Date" jdbcTypeCode="93" label="Date created" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_id" dbNotNull="true" dbPosition="8" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account id" notNull="true" selected="true"/>
+<fk name="fk_Payment_History_Account1">
+<fkcol colname="Account_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Payment_History" tableref="Account" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Payment_History_Account1" id="LINK_FK_fk_Payment_History_Account1_O" inverseSideOf="" javaName="account" javaType="Account" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Payment_History" targetEntity="Account" targetTableName="Account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Account_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+</tableList>
+</root>
