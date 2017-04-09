@@ -1,53 +1,124 @@
 <!doctype html>
 <html lang="en" ng-app="myApp">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>debtmonkey</title>
+    <!-- link href="css/bootstrap.min.css" rel="stylesheet"  type="text/css" / -->
+	  <!-- link href="css/bootstrap-theme.min.css" rel="stylesheet"  type="text/css" / -->
+	  <link href="css/bootstrap-datepicker.css" rel="stylesheet"  type="text/css" />
+	  <link href="css/app.css" rel="stylesheet"  type="text/css" />
 
-	<title>Application</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<!-- style -->
-	<link href="css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
-	<link href="css/bootstrap-theme.min.css" rel="stylesheet"  type="text/css" />
-	<link href="css/bootstrap-datepicker.css" rel="stylesheet"  type="text/css" />
-	<link href="css/app.css" rel="stylesheet"  type="text/css" />
-	
 </head>
+
+
 <body>
 
-    <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-inner">
-          	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            	<span class="icon-bar"></span>
-            	<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-        	</a>
-			<a class="navbar-brand logo" href="#" data-translate="welcome"></a>
-			<ul class="nav navbar-nav languages" ng-controller="TranslateCtrl">
- 				<li><a class="navbar-brand" href="" ng-click="changeLanguage('en')">
-        	        <span class="glyphicon glyphicon-th-large"></span>
-            	    <span data-translate="english"></span>
-				</a></li>
-				<li><a class="navbar-brand" href="" ng-click="changeLanguage('fr')">
-        	        <span class="glyphicon glyphicon-th-large"></span>
-            	    <span data-translate="french"></span>
-				</a></li>
-			</ul>
+<div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"><img src="assets/img/debtMonkey.jpg" height="75"></div>
+                <div class="col-md-10">
+                    <h1><span style="color:red;">debt</span><span style="color:blue;">Monkey</span> </h1></div>
+            </div>
         </div>
-      </div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+           <div style="float:right">
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="active" role="presentation"><a href="#/">Home </a></li>
+
+                    <li id="account" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#"  ng-click="resetActiveTab('account')">Accounts <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#/account">View Accounts</a></li>
+                            <li role="presentation"><a href="#">Monthly Outlook</a></li>
+                        </ul>
+                    </li>
+                    <li  id="schedule" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#"  ng-click="resetActiveTab('schedule')">Schedules </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#/paymentHistory">Payments</a></li>
+                            <li role="presentation"><a href="#/user">User Profile</a></li>
+                        </ul>
+                    </li>
+                    <li id="admin" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="admin.html"  ng-click="resetActiveTab('admin')">Admin <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#">Account Codes</a></li>
+                            <li role="presentation"><a href="#">Address codes</a></li>
+                            <li role="presentation"><a href="#">Security Roles</a></li>
+                            <li role="presentation"><a href="#/databaseDesignErd">Database ERD</a></li>
+                        </ul>
+                    </li>
+                    <li id="about" class="inactive" role="presentation"><a href="#/about">About </a></li>
+                </ul>
+            </div>
+            </div>
+            
+        </div>
     </nav>
-	
-    <div class="container">
-		<div ng-view></div>
-	  	<div><span data-translate="app.version"></span>&nbsp;<span data-app-version></span></div>
-	</div>
+
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" ng-view></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-clean">
+      <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Fantastic Features</h2>
+                    <p>User-centric view of monthly bills and expenses. Top-level view of "payments at-a-glance" for 30 day period or dive into weekly/daily schedules.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row icon-features">
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-cloud" style="font-size:60pt; color:blue;"></i>
+                            <p>Accounts </p>
+                        </div>
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-piggy-bank" style="font-size:60pt; color:green;"></i>
+                            <p>Payments </p>
+                        </div>
+                        <div class="col-xs-4 icon-feature"><i class="glyphicon glyphicon-fire"  style="font-size:60pt; color:red;'"></i>
+                            <p>30 day Outlook</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>debtMonkey © 2017</h5></div>
+                <div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <footer></footer>
 
 	<!-- javascript -->
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- javascript -->
 	<script src="lib/moment-with-langs.js"></script>
 	<script src="lib/validation.js"></script>
 	<script src="lib/jquery-1.10.2.min.js"></script>
 	<script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
+
   	<!-- In production use:
   	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   	-->
